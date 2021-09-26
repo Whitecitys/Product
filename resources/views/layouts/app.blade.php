@@ -43,10 +43,10 @@
                     @endif
                     @else
                     <ul class="navbar-nav ml-3">
-                        <a href="/product">Auto Machine</a>
+                        <a href="/product">จัดการ สินค้า</a>
                     </ul>
                     <ul class="navbar-nav ml-3">
-                        <a href="{{ route('welcome') }}">Auto Machine</a>
+                        <a href="/money">จัดการ เงิน</a>
                     </ul>
                     @endguest
 
