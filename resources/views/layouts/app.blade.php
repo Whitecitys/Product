@@ -36,8 +36,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @guest
 
-                  
+                    @if (Route::has('register'))
+
+                    @endif
+                    @else
+                    <ul class="navbar-nav ml-3">
+                        <a href="/product">Auto Machine</a>
+                    </ul>
+                    <ul class="navbar-nav ml-3">
+                        <a href="{{ route('welcome') }}">Auto Machine</a>
+                    </ul>
+                    @endguest
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
