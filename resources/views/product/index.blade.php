@@ -22,7 +22,7 @@
                 <td>{{$products->name}}</td>
                 <td>{{$products->price}}</td>
                 <td>{{$products->piece}}</td>
-                <td><a href="{{route('product.edit',$products->id)}}" type="button" class="btn btn-warning">แก้ไข</a></td>
+                <td><a href="{{route('product.edit',$products->id)}}" type="button" class="btn btn-warning">Edit</a></td>
                 <td>
                     <form action="{{route('product.destroy',$products->id)}}" method="POST">
                         @csrf @method('DELETE')

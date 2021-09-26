@@ -71,8 +71,7 @@ class MoneyController extends Controller
      */
     public function update(Request $request ,$id)
     {
-        // return $request->money_1000;
-        $data = DB::table('moneys');
+        $data = DB::table('moneys')->where('id',1);
         $data->increment('money_1000',0+$request->money_1000);
         $data->increment('money_500',0+$request->money_500);
         $data->increment('money_100',0+$request->money_100);
