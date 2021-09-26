@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/money/clear',[MoneyController::class,'clear'])->name('clear');
+Route::get('/clear',[MoneyController::class,'clear'])->name('clear2');
 
 Route::resource('product','ProductController')->middleware('auth');
 Route::resource('money','MoneyController')->middleware('auth');
