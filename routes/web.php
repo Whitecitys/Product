@@ -22,11 +22,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/money/clear',[MoneyController::class,'clear'])->name('clear');
-Route::get('/clear',[MoneyController::class,'clear'])->name('clear2');
+
+Route::get('/clear',[CustomerContrller::class,'clear'])->name('clear2');
+Route::get('/sum/{id}',[CustomerContrller::class,'sum'])->name('sum');
 
 Route::resource('product','ProductController')->middleware('auth');
 Route::resource('money','MoneyController')->middleware('auth');
 
-Route::get('/addCust/{id}/{money}', [CustomerContrller::class,'addCustmoney'])->name('addCust');
+Route::get('/addCust/{id}/{money}/{price}', [CustomerContrller::class,'addCustmoney'])->name('addCust');
 
 Route::get('/', [HomeController::class,'index'])->name('welcome');

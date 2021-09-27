@@ -72,14 +72,14 @@ class MoneyController extends Controller
     public function update(Request $request ,$id)
     {
         $data = DB::table('moneys')->where('id',1);
-        $data->increment('money_1000',0+$request->money_1000);
-        $data->increment('money_500',0+$request->money_500);
-        $data->increment('money_100',0+$request->money_100);
-        $data->increment('money_50',0+$request->money_50);
-        $data->increment('money_20',0+$request->money_20);
-        $data->increment('money_10',0+$request->money_10);
-        $data->increment('money_5',0+$request->money_5);
-        $data->increment('money_2',0+$request->money_2);
+        $data->increment('money_1000',0+($request->money_1000*1000));
+        $data->increment('money_500',0+($request->money_500*500));
+        $data->increment('money_100',0+($request->money_100)*100);
+        $data->increment('money_50',0+($request->money_50)*50);
+        $data->increment('money_20',0+($request->money_20)*20);
+        $data->increment('money_10',0+($request->money_10)*10);
+        $data->increment('money_5',0+($request->money_5)*5);
+        $data->increment('money_2',0+($request->money_2)*2);
         $data->increment('money_1',0+$request->money_1);
         
         return redirect('/money');

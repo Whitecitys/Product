@@ -27,15 +27,15 @@ class HomeController extends Controller
     {
         $product = DB::table('products')->get();
         $customer = DB::table('moneys')->where('id', 2)->get()[0];
-        $sum = ($customer->money_1000 * 1000)
-            + ($customer->money_500 * 500)
-            + ($customer->money_100 * 100)
-            + ($customer->money_50 * 50)
-            + ($customer->money_20 * 20)
-            + ($customer->money_10 * 10)
-            + ($customer->money_5 * 5)
-            + ($customer->money_2 * 2)
-            + ($customer->money_1 * 1);
+        $sum = ($customer->money_1000)
+            + ($customer->money_500)
+            + ($customer->money_100)
+            + ($customer->money_50)
+            + ($customer->money_20)
+            + ($customer->money_10)
+            + ($customer->money_5)
+            + ($customer->money_2)
+            + ($customer->money_1);
 
         $data = Money::all()->first();
         return view('welcome')->with('product', $product)->with('sum', $sum)->with('data', $data);
