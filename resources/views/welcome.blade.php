@@ -5,16 +5,36 @@
     padding-left: 10px;
     padding-right: 10px;
   }
- 
 </style>
 @section('content')
+
 <div class="container">
+
+  @if(session()->has('clear'))
+  <div class="alert alert-success" id="re">
+    {{ session()->get('clear') }}
+  </div>
+  @endif
+  @if(session()->has('message'))
+  @if(session()->get('change')=='เงินทอนไม่เพียงพอ')
+  <div class="alert alert-danger" id="nch">
+    {{ session()->get('change') }}
+  </div>
+  @else
+  <div class="alert alert-success" id="ch">
+    {{ session()->get('message') }} เงินทอน {{ session()->get('change') }} บาท
+  </div>
+  @endif
+
+
+  @endif
+
   <H4 style="text-align: center;"><span>ยอดเงินปัจจุบันของคุณคือ : </span><span style="color:green">{{$sum}}</span> บาท</H4>
   <div class="col-12" style="font-size: 30px;">
     <div class="row">
 
       <div class="col-10 " style="align-items: center;">
-      <a>เพิ่มเงิน</a>
+        <a>เพิ่มเงิน</a>
         <a type="button" href="{{ route('addCust',['id' => '2','money' => 'money_1000','price' => '1000']) }}" class="btn btn-success">1000</a>
         <a type="button" href="{{ route('addCust',['id' => '2','money' => 'money_500','price' => '500']) }}" class="btn btn-success">500</a>
         <a type="button" href="{{ route('addCust',['id' => '2','money' => 'money_100','price' => '100']) }}" class="btn btn-success">100</a>
@@ -95,5 +115,24 @@
   </div>
 </div>
 
+<script>
+  window.setTimeout(function() {
+    $("#ch").fadeTo(500, 0).slideUp(500, function() {
+      $(this).remove();
+    });
+  }, 10000);
+
+  window.setTimeout(function() {
+    $("#re").fadeTo(500, 0).slideUp(500, function() {
+      $(this).remove();
+    });
+  }, 2000);
+
+  window.setTimeout(function() {
+    $("#nch").fadeTo(500, 0).slideUp(500, function() {
+      $(this).remove();
+    });
+  }, 2000);
+</script>
 
 @endsection
