@@ -187,7 +187,6 @@ class CustomerContrller extends Controller
                 $change = 'เงินทอนไม่เพียงพอ';
             }
         }
-
         $data = DB::table('moneys')->where('id', 2);
         $data->update(['money_1000' => 0]);
         $data->update(['money_500' => 0]);
@@ -198,7 +197,15 @@ class CustomerContrller extends Controller
         $data->update(['money_5' => 0]);
         $data->update(['money_2' => 0]);
         $data->update(['money_1' => 0]);
-
-        return redirect()->back()->with('message', 'คุณได้รับสินค้าแล้ว')->with('change', $change);
+        return redirect()->back()->with('message', 'คุณได้รับสินค้าแล้ว')->with('change', $change)
+        ->with('m1000', $arr[0])
+        ->with('m500', $arr[1])
+        ->with('m100', $arr[2])
+        ->with('m50', $arr[3])
+        ->with('m20', $arr[4])
+        ->with('m10', $arr[5])
+        ->with('m5', $arr[6])
+        ->with('m2', $arr[7])
+        ->with('m1', $arr[8]);
     }
 }

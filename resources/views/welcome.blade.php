@@ -22,7 +22,18 @@
   </div>
   @else
   <div class="alert alert-success" id="ch">
-    {{ session()->get('message') }} เงินทอน {{ session()->get('change') }} บาท
+    {{ session()->get('message') }} เงินทอน {{ session()->get('change') }} บาท 
+    <br>
+    1000 บาท {{ session()->get('m1000') }} ใบ 
+    500 บาท {{ session()->get('m500') }} ใบ 
+    100 บาท {{ session()->get('m100') }} ใบ
+    50 บาท {{ session()->get('m50') }} ใบ
+    20 บาท {{ session()->get('m20') }} ใบ
+    <br>
+    10 บาท {{ session()->get('m10') }} เหรียญ
+    5 บาท {{ session()->get('m5') }} เหรียญ
+    2 บาท {{ session()->get('m2') }} เหรียญ
+    1 บาท {{ session()->get('m1') }} เหรียญ
   </div>
   @endif
 
@@ -120,7 +131,7 @@
     $("#ch").fadeTo(500, 0).slideUp(500, function() {
       $(this).remove();
     });
-  }, 10000);
+  }, 20000);
 
   window.setTimeout(function() {
     $("#re").fadeTo(500, 0).slideUp(500, function() {
